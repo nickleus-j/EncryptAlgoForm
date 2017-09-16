@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EncryptionAlgoForm"
         mc:Ignorable="d"
-        Title="Encryption Form" Height="350" Width="525">
+        Title="Encryption Form" Height="400" Width="525">
     <Grid>
         <StackPanel>
             <Label>Encryption Algorithm Forms</Label>
-            <StackPanel Name="EncryptionSelection" Orientation="Horizontal">
+            <StackPanel Name="EncryptionSelection" Orientation="Horizontal" Margin="5,10">
                 <Button x:Name="Sha_256" Content="Sha-256"></Button>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <Label Content="Enter Text To be Encrypted" FontSize="20"></Label>
+                <TextBox Name="ToBeEncrypted" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="22"></TextBox>
+            </StackPanel>
+            <TextBox Name="result" IsEnabled="False" Text="Result" FontSize="22"></TextBox>
         </StackPanel>
     </Grid>
 </Window>
