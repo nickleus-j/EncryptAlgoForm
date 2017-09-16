@@ -3,26 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EncryptionAlgoForm"
+        xmlns:local="clr-namespace:HashAlgoForm.ViewModels"
         mc:Ignorable="d"
-        Title="Encryption Form" Height="400" Width="525">
+        Title="Hash Form" Height="400" Width="525">
     <Grid>
         <StackPanel>
-            <Label>Encryption Algorithm Forms</Label>
+            <Label>Hash Algorithm Forms</Label>
             <StackPanel Name="EncryptionSelection" Orientation="Horizontal" Margin="5,10">
-                <Button x:Name="Sha_256" Content="Sha-256"></Button>
+                <Label Content="Choose a Hash Algorithm"></Label>
+                <ComboBox Name="HashForm">
+                    <ComboBoxItem Content="Sha-256" Selector.IsSelected="True"></ComboBoxItem>
+                    <ComboBoxItem Content="Sha-512"></ComboBoxItem>
+                </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Enter Text To be Encrypted" FontSize="20"></Label>
-                <TextBox Name="ToBeEncrypted" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="22"></TextBox>
+                <TextBox Name="ToBeEncrypted" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="22" Text="{Binding Path=ForHashing}">
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Enter Text For Salt" FontSize="18"></Label>
                 <TextBox Name="ForSalt" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="18"></TextBox>
                 <CheckBox Content="Use Salt" Margin="15,10"></CheckBox>
             </StackPanel>
-            <Button Name="EncryptBt" Content="Encrypt"></Button>
-            <TextBox Name="result" IsEnabled="False" Text="Result" FontSize="22"></TextBox>
+            <Button Name="EncryptBt" Content="Encrypt" ></Button>
+            <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="22"></TextBox>
         </StackPanel>
     </Grid>
 </Window>

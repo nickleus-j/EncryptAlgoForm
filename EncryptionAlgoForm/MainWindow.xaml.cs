@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HashAlgoForm.Commands;
+using HashAlgoForm.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,18 @@ namespace EncryptionAlgoForm
     /// </summary>
     public partial class MainWindow : Window
     {
+        public FormModel Model { get; set; }
+        public HasherUiHandler clickhandler { get; set; }
         public MainWindow()
         {
+            Model = new FormModel();
+            clickhandler=new HasherUiHandler(Model);
+            Model.ForHashing = "Give text";
+            Model.result = "Result Here";
             InitializeComponent();
+            this.DataContext = Model;
+            EncryptBt.Click += clickhandler.EncryptBt_Click;
         }
+        
     }
 }
