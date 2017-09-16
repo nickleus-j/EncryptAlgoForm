@@ -1,14 +1,17 @@
-﻿<Window x:Class="EncryptionAlgoForm.MainWindow"
+﻿<Window x:Name="mainWindow" x:Class="EncryptionAlgoForm.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EncryptionAlgoForm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Encryption Form" Height="350" Width="525">
     <Grid>
         <StackPanel>
             <Label>Encryption Algorithm Forms</Label>
+            <StackPanel Name="EncryptionSelection" Orientation="Horizontal">
+                <Button x:Name="Sha_256" Content="Sha-256"></Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
