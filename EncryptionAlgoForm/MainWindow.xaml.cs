@@ -29,7 +29,7 @@ namespace EncryptionAlgoForm
             Model = new FormModel();
             clickhandler=new HasherUiHandler(Model);
             Model.ForHashing = "Give text";
-            Model.result = "Result Here";
+            Model.Result = "Result Here";
             InitializeComponent();
             this.DataContext = Model;
             EncryptBt.Click += clickhandler.EncryptBt_Click;

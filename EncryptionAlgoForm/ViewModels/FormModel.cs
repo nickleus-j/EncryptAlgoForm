@@ -9,7 +9,7 @@ namespace HashAlgoForm.ViewModels
     {
         public string ForHashing { get; set; }
         public string ForSalt { get; set; }
-        public string result { get; set; }
+        private string result { get; set; }
         public string Result { get { return result; }
             set
             {
@@ -17,7 +17,8 @@ namespace HashAlgoForm.ViewModels
                 OnPropertyChanged("result");
             }
         }
-        public bool useSalt { get; set; }
+        private bool useSalt { get; set; }
+        public bool UseSalt { get { return useSalt; } set { useSalt = value;OnPropertyChanged("useSalt"); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)

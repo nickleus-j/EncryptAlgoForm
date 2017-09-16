@@ -33,9 +33,24 @@ namespace HashAlgoForm.Commands
             ViewModel.Result = hex;
             //ViewModel.result=Hasher.Hash_sha256(ViewModel.ForHashing);
         }
+        public void Hash(HashAlgorithm hasher,string ForHashing="Example")
+        {
+            UnicodeEncoding UE = new UnicodeEncoding();
+            byte[] hashValue;
+            byte[] message = UE.GetBytes(ForHashing);
+            string hex = "";
+
+            hashValue = hasher.ComputeHash(message);
+            foreach (byte x in hashValue)
+            {
+                hex += String.Format("{0:x2}", x);
+            }
+            ViewModel.Result = hex;
+        }
         public void EncryptBt_Click(object sender, RoutedEventArgs e)
         {
-            Hash();
+            string forHashing = ViewModel.UseSalt ? ViewModel.ForHashing + ViewModel.ForSalt : ViewModel.ForHashing;
+            Hash(new SHA256Managed(),forHashing);
         }
     }
 }
