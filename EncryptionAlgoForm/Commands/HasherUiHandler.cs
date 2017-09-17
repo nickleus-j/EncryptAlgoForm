@@ -4,6 +4,7 @@ using System.Text;
 using HashAlgoForm.ViewModels;
 using System.Windows;
 using System.Security.Cryptography;
+using System.Windows.Controls;
 
 namespace HashAlgoForm.Commands
 {
@@ -53,6 +54,11 @@ namespace HashAlgoForm.Commands
                 Hash(new SHA256Managed(), forHashing);
             }
             else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
+        }
+        public void HashForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(sender is ComboBox)
+            ViewModel.SelectedHashAlgorithm = (HashAlgorithm)(((ComboBox)sender).SelectedValue);
         }
     }
 }

@@ -35,11 +35,8 @@ namespace EncryptionAlgoForm
             InitializeComponent();
             this.DataContext = Model;
             EncryptBt.Click += clickhandler.EncryptBt_Click;
+            HashChoice.SelectionChanged += clickhandler.HashForm_SelectionChanged;
         }
-
-        private void HashForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Model.SelectedHashAlgorithm = (HashAlgorithm)HashChoice.SelectedValue;
-        }
+        
     }
 }

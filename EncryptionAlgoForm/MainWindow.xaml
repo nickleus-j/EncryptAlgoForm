@@ -13,8 +13,7 @@
                 <Label Content="Choose a Hash Algorithm"></Label>
                 <ComboBox Name="HashChoice" 
                            SelectedValuePath="Value" DisplayMemberPath="Key" 
-                          ItemsSource="{Binding Path=HashOptions}" SelectionChanged="HashForm_SelectionChanged">
-                </ComboBox>
+                          ItemsSource="{Binding Path=HashOptions}" SelectedIndex="0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Enter Text To be Encrypted" FontSize="20"></Label>
