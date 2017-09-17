@@ -94,12 +94,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EncryptionLibrary\EncryptionLibrary.csproj">
-      <Project>{bbe2b3e2-c949-42de-b946-744ae8f19091}</Project>
-      <Name>EncryptionLibrary</Name>
+    <ProjectReference Include="..\CipherLibrary\CipherLibrary.csproj">
+      <Project>{8c2b273c-61e2-4940-bfd9-f44859107cae}</Project>
+      <Name>CipherLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

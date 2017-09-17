@@ -3,6 +3,7 @@ using HashAlgoForm.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,10 +31,15 @@ namespace EncryptionAlgoForm
             clickhandler=new HasherUiHandler(Model);
             Model.ForHashing = "Give text";
             Model.Result = "Result Here";
+            Model.SelectedHashAlgorithm = Model.HashOptions.Values.First();
             InitializeComponent();
             this.DataContext = Model;
             EncryptBt.Click += clickhandler.EncryptBt_Click;
         }
-        
+
+        private void HashForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Model.SelectedHashAlgorithm = (HashAlgorithm)HashChoice.SelectedValue;
+        }
     }
 }

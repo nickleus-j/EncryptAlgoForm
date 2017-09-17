@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows.Controls;
-using EncryptionLibrary;
 using HashAlgoForm.ViewModels;
 using System.Windows;
 using System.Security.Cryptography;
@@ -50,7 +48,11 @@ namespace HashAlgoForm.Commands
         public void EncryptBt_Click(object sender, RoutedEventArgs e)
         {
             string forHashing = ViewModel.UseSalt ? ViewModel.ForHashing + ViewModel.ForSalt : ViewModel.ForHashing;
-            Hash(new SHA256Managed(),forHashing);
+            if (ViewModel.SelectedHashAlgorithm == null)
+            {
+                Hash(new SHA256Managed(), forHashing);
+            }
+            else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
         }
     }
 }

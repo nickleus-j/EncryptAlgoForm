@@ -11,9 +11,9 @@
             <Label>Hash Algorithm Forms</Label>
             <StackPanel Name="EncryptionSelection" Orientation="Horizontal" Margin="5,10">
                 <Label Content="Choose a Hash Algorithm"></Label>
-                <ComboBox Name="HashForm">
-                    <ComboBoxItem Content="Sha-256" Selector.IsSelected="True"></ComboBoxItem>
-                    <ComboBoxItem Content="Sha-512"></ComboBoxItem>
+                <ComboBox Name="HashChoice" 
+                           SelectedValuePath="Value" DisplayMemberPath="Key" 
+                          ItemsSource="{Binding Path=HashOptions}" SelectionChanged="HashForm_SelectionChanged">
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5">

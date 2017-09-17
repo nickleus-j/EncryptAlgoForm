@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
+using CipherLibrary;
+using System.Security.Cryptography;
 
 namespace HashAlgoForm.ViewModels
 {
@@ -19,7 +20,18 @@ namespace HashAlgoForm.ViewModels
         }
         private bool useSalt { get; set; }
         public bool UseSalt { get { return useSalt; } set { useSalt = value;OnPropertyChanged("useSalt"); } }
-
+        private Dictionary<string, HashAlgorithm> hashDictionary { get; set; }
+        public Dictionary<string, HashAlgorithm> HashOptions {
+            get {
+                if (hashDictionary == null)
+                {
+                    HashFactory factory = new HashFactory();
+                    hashDictionary = factory.GetHashAlgorithms();
+                }
+                return hashDictionary;
+            } }
+        public HashAlgorithm SelectedHashAlgorithm { get; set; }
+        #region Notification
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
         {
@@ -27,5 +39,6 @@ namespace HashAlgoForm.ViewModels
                 PropertyChanged(this,
                     new System.ComponentModel.PropertyChangedEventArgs(propertyName));
         }
+        #endregion
     }
 }
