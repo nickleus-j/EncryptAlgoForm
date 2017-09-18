@@ -8,6 +8,7 @@ namespace HashAlgoForm.ViewModels
 {
     public class FormModel : System.ComponentModel.INotifyPropertyChanged
     {
+        #region properties
         public string ForHashing { get; set; }
         public string ForSalt { get; set; }
         private string result { get; set; }
@@ -31,6 +32,19 @@ namespace HashAlgoForm.ViewModels
                 return hashDictionary;
             } }
         public HashAlgorithm SelectedHashAlgorithm { get; set; }
+        private List<HashedTerm> termLog { get; set; }
+        public List<HashedTerm> HashedHistory
+        {
+            get
+            {
+                if (termLog == null)
+                {
+                    termLog = new List<HashedTerm>();
+                }
+                return termLog;
+            }
+        }
+        #endregion
         #region Notification
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)

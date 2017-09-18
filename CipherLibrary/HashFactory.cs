@@ -14,6 +14,8 @@ namespace CipherLibrary
         }
         public SHA512 CreateSha512() => new SHA512Managed();
         public MD5 CreateMD5() => MD5.Create();
+        public KeyedHashAlgorithm CreateKeyHashAlgorithm() => KeyedHashAlgorithm.Create();
+        public RIPEMD160 CreateRipeMdAlgorithm() => new RIPEMD160Managed();
 
         public Dictionary<string, HashAlgorithm> GetHashAlgorithms()
         {
@@ -21,6 +23,8 @@ namespace CipherLibrary
             hashAlgorithms.Add("Sha-256", CreateSha256());
             hashAlgorithms.Add("Sha-512", CreateSha512());
             hashAlgorithms.Add("MD5", CreateMD5());
+            hashAlgorithms.Add("Keyed Hash Algorithm", CreateKeyHashAlgorithm());
+            hashAlgorithms.Add("Ripe MD 160", CreateRipeMdAlgorithm());
             return hashAlgorithms;
         }
     }

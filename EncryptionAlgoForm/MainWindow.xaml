@@ -25,8 +25,8 @@
                 <TextBox Name="ForSalt" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt}"></TextBox>
                 <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt}"></CheckBox>
             </StackPanel>
-            <Button Name="EncryptBt" Content="Encrypt" ></Button>
-            <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="22" IsReadOnly="True"></TextBox>
+            <Button Name="EncryptBt" Content="Encrypt"></Button>
+            <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="12" IsReadOnly="True"></TextBox>
         </StackPanel>
     </Grid>
 </Window>
