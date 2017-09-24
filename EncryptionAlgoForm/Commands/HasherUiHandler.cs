@@ -37,7 +37,7 @@ namespace HashAlgoForm.Commands
                 Hash(new SHA256Managed(), forHashing);
             }
             else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
-            ViewModel.HashedHistory.Add(new HashedTerm(ViewModel.ForHashing, ViewModel.UseSalt, ViewModel.ForSalt));
+            ViewModel.AddHashedTerm(new HashedTerm(ViewModel.ForHashing, ViewModel.UseSalt, ViewModel.ForSalt));
         }
         public void HashForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

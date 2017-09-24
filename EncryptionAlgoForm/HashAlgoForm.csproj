@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\HasherUiHandler.cs" />
     <Compile Include="ViewModels\FormModel.cs" />
+    <Compile Include="ViewModels\HashedTerm.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

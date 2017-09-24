@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using CipherLibrary;
 using System.Security.Cryptography;
+using System.Collections.ObjectModel;
 
 namespace HashAlgoForm.ViewModels
 {
@@ -32,14 +33,14 @@ namespace HashAlgoForm.ViewModels
                 return hashDictionary;
             } }
         public HashAlgorithm SelectedHashAlgorithm { get; set; }
-        private List<HashedTerm> termLog { get; set; }
-        public List<HashedTerm> HashedHistory
+        private ObservableCollection<HashedTerm> termLog { get; set; }
+        public ObservableCollection<HashedTerm> HashedHistory
         {
             get
             {
                 if (termLog == null)
                 {
-                    termLog = new List<HashedTerm>();
+                    termLog = new ObservableCollection<HashedTerm>();
                 }
                 return termLog;
             }
@@ -52,6 +53,12 @@ namespace HashAlgoForm.ViewModels
             if (PropertyChanged != null)
                 PropertyChanged(this,
                     new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        }
+        public void AddHashedTerm(HashedTerm createdTerm)
+        {
+            HashedHistory.Add(createdTerm);
+            OnPropertyChanged("termLog");
+            //OnPropertyChanged("HashedHistory");
         }
         #endregion
     }
