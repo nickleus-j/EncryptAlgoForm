@@ -10,8 +10,9 @@ namespace HashAlgoForm.ViewModels
     public class FormModel : System.ComponentModel.INotifyPropertyChanged
     {
         #region properties
-        public string ForHashing { get; set; }
-        public string ForSalt { get; set; }
+        private string forHashing { get; set; }
+        private string forSalt { get; set; }
+        
         private string result { get; set; }
         public string Result { get { return result; }
             set
@@ -21,6 +22,8 @@ namespace HashAlgoForm.ViewModels
             }
         }
         private bool useSalt { get; set; }
+        public string ForHashing { get { return forHashing; } set { forHashing = value; OnPropertyChanged("forHashing"); } }
+        public string ForSalt { get { return forSalt; } set { forSalt = value; OnPropertyChanged("forSalt"); } }
         public bool UseSalt { get { return useSalt; } set { useSalt = value;OnPropertyChanged("useSalt"); } }
         private Dictionary<string, HashAlgorithm> hashDictionary { get; set; }
         public Dictionary<string, HashAlgorithm> HashOptions {

@@ -18,5 +18,7 @@ namespace HashAlgoForm.ViewModels
             isSalted = useSalt;
             ForSalt = TextForSalt;
         }
+
+        public string Term => isSalted ? ForHashing + " | " + ForSalt : ForHashing;
     }
 }

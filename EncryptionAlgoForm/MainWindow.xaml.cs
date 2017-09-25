@@ -36,7 +36,10 @@ namespace EncryptionAlgoForm
             this.DataContext = Model;
             EncryptBt.Click += clickhandler.EncryptBt_Click;
             HashChoice.SelectionChanged += clickhandler.HashForm_SelectionChanged;
+            LoggedHashes.SelectionChanged += clickhandler.TermHistory_Select;
         }
+
+        
         
     }
 }

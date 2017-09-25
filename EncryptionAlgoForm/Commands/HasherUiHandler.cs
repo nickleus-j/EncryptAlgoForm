@@ -44,5 +44,19 @@ namespace HashAlgoForm.Commands
             if(sender is ComboBox)
             ViewModel.SelectedHashAlgorithm = (HashAlgorithm)(((ComboBox)sender).SelectedValue);
         }
+        public void TermHistory_Select(object sender, RoutedEventArgs e)
+        {
+            if (sender is ListBox)
+            {
+                ListBox lb = (ListBox)sender;
+                HashedTerm selectedTerm = ViewModel.HashedHistory[lb.SelectedIndex];
+                ViewModel.ForHashing = selectedTerm.ForHashing;
+                ViewModel.ForSalt = selectedTerm.ForSalt;
+                ViewModel.UseSalt = selectedTerm.isSalted;
+                Hash(ViewModel.SelectedHashAlgorithm
+                    , ViewModel.UseSalt ? ViewModel.ForHashing + ViewModel.ForSalt : ViewModel.ForHashing);
+            }
+
+        }
     }
 }

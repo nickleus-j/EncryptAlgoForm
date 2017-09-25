@@ -10,17 +10,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*" MaxHeight="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <!--<ToolBar Grid.Column="0" Grid.Row="0">
-           <Button Padding="10,3" Background="#c3c3c3" Content="Open" Name="OpenButton"/>
-        </ToolBar>-->
+        
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Label>Hash Algorithm Forms</Label>
             <StackPanel Name="EncryptionSelection" Orientation="Horizontal" Margin="5,10">
                 <Label Content="Choose a Hash Algorithm"></Label>
                 <ComboBox Name="HashChoice" 
@@ -29,28 +26,31 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Enter Text To be Encrypted" FontSize="20"></Label>
-                <TextBox Name="ToBeEncrypted" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="22" Text="{Binding Path=ForHashing}">
+                <TextBox Name="ToBeEncrypted" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="22" Text="{Binding Path=ForHashing, Mode=TwoWay}">
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Enter Text For Salt" FontSize="18"></Label>
-                <TextBox Name="ForSalt" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt}"></TextBox>
-                <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt}"></CheckBox>
+                <TextBox Name="ForSalt" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt, Mode=TwoWay}"></TextBox>
+                <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}"></CheckBox>
             </StackPanel>
             <Button Name="EncryptBt" Content="Encrypt" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5"/>
             <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="12" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
         </StackPanel>
-        <ScrollViewer  Grid.Column="0" Grid.Row="2" >
-            <ListBox ItemsSource="{Binding Path=HashedHistory}">
+
+        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="10,5">
+            <Label Content="Log history" FontSize="16"/>
+            <Button Content="Clear Log History"></Button>
+        </StackPanel>
+        
+        <ScrollViewer  Grid.Column="1" Grid.Row="2" BorderBrush="#FFB5B5B5" >
+            <ListBox ItemsSource="{Binding Path=HashedHistory}" x:Name="LoggedHashes">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Path=ForHashing}" />
-                        </StackPanel>
+                        <TextBlock Text="{Binding Path=Term}" FontSize="16"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </ScrollViewer>
-        
     </Grid>
 </Window>
