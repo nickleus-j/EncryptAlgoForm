@@ -40,7 +40,7 @@
 
         <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="10,5">
             <Label Content="Log history" FontSize="16"/>
-            <Button Content="Clear Log History"></Button>
+            <Button Content="Clear Log History" x:Name="clearLogBtn"></Button>
         </StackPanel>
         
         <ScrollViewer  Grid.Column="1" Grid.Row="2" BorderBrush="#FFB5B5B5" >

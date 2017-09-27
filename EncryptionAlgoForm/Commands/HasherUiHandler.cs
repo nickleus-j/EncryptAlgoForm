@@ -58,5 +58,9 @@ namespace HashAlgoForm.Commands
             }
 
         }
+        public void Trigger_ClearLoggedTerms(object sender, RoutedEventArgs e)
+        {
+            ViewModel.HashedHistory.Clear();
+        }
     }
 }

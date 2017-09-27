@@ -16,6 +16,7 @@ namespace CipherLibrary
         public MD5 CreateMD5() => MD5.Create();
         public KeyedHashAlgorithm CreateKeyHashAlgorithm() => KeyedHashAlgorithm.Create();
         public RIPEMD160 CreateRipeMdAlgorithm() => new RIPEMD160Managed();
+        public Whirlpool CreateWhirlpool() => new Whirlpool();
 
         public Dictionary<string, HashAlgorithm> GetHashAlgorithms()
         {
@@ -25,6 +26,7 @@ namespace CipherLibrary
             hashAlgorithms.Add("MD5", CreateMD5());
             hashAlgorithms.Add("Keyed Hash Algorithm", CreateKeyHashAlgorithm());
             hashAlgorithms.Add("Ripe MD 160", CreateRipeMdAlgorithm());
+            hashAlgorithms.Add("Whirlpool", CreateWhirlpool());
             return hashAlgorithms;
         }
     }

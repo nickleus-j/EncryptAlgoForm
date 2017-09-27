@@ -34,12 +34,16 @@ namespace EncryptionAlgoForm
             Model.SelectedHashAlgorithm = Model.HashOptions.Values.First();
             InitializeComponent();
             this.DataContext = Model;
+            SetupUiEvents();
+        }
+
+        private void SetupUiEvents()
+        {
             EncryptBt.Click += clickhandler.EncryptBt_Click;
             HashChoice.SelectionChanged += clickhandler.HashForm_SelectionChanged;
             LoggedHashes.SelectionChanged += clickhandler.TermHistory_Select;
+            clearLogBtn.Click += clickhandler.Trigger_ClearLoggedTerms;
         }
-
-        
         
     }
 }
