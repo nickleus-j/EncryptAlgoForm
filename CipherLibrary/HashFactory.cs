@@ -27,6 +27,7 @@ namespace CipherLibrary
             hashAlgorithms.Add("Keyed Hash Algorithm", CreateKeyHashAlgorithm());
             hashAlgorithms.Add("Ripe MD 160", CreateRipeMdAlgorithm());
             hashAlgorithms.Add("Whirlpool", CreateWhirlpool());
+            hashAlgorithms.Add("HMAC", HMACSHA256.Create()); 
             return hashAlgorithms;
         }
     }

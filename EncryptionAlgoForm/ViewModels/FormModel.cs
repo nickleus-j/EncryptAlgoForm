@@ -61,7 +61,6 @@ namespace HashAlgoForm.ViewModels
         {
             HashedHistory.Add(createdTerm);
             OnPropertyChanged("termLog");
-            //OnPropertyChanged("HashedHistory");
         }
         #endregion
     }

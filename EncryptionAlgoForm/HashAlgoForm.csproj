@@ -56,8 +56,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\HasherUiHandler.cs" />
+    <Compile Include="CustomControls\EncryptForm.xaml.cs">
+      <DependentUpon>EncryptForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\FormModel.cs" />
     <Compile Include="ViewModels\HashedTerm.cs" />
+    <Page Include="CustomControls\EncryptForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
