@@ -1,0 +1,4 @@
+{
+	"excuses":["LBM","Migraine","Sore Eyes","Twisted Ankle"]
+	,"valid":"true"
+}
