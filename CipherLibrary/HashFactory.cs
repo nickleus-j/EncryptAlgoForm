@@ -17,7 +17,10 @@ namespace CipherLibrary
         public KeyedHashAlgorithm CreateKeyHashAlgorithm() => KeyedHashAlgorithm.Create();
         public RIPEMD160 CreateRipeMdAlgorithm() => new RIPEMD160Managed();
         public Whirlpool CreateWhirlpool() => new Whirlpool();
-
+        /// <summary>
+        /// Returns a collection of hash algorithms that can be used
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<string, HashAlgorithm> GetHashAlgorithms()
         {
             Dictionary<string, HashAlgorithm> hashAlgorithms = new Dictionary<string, HashAlgorithm>();

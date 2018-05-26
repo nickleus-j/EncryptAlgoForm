@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Blend for Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashAlgoForm", "EncryptionAlgoForm\HashAlgoForm.csproj", "{42BB6CA8-3A0C-4582-AC4D-9EB188DD4E0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncryptionLibrary", "EncryptionLibrary\EncryptionLibrary.csproj", "{BBE2B3E2-C949-42DE-B946-744AE8F19091}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionLibrary", "EncryptionLibrary\EncryptionLibrary.csproj", "{BBE2B3E2-C949-42DE-B946-744AE8F19091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CipherLibrary", "CipherLibrary\CipherLibrary.csproj", "{8C2B273C-61E2-4940-BFD9-F44859107CAE}"
 EndProject
