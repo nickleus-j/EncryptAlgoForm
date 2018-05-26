@@ -30,7 +30,7 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,5">
-                <Label Content="Enter Text For Salt" FontSize="18"></Label>
+                <Label Content="Text For Salt" FontSize="18"></Label>
                 <TextBox Name="ForSalt" MinWidth="210" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt, Mode=TwoWay}"></TextBox>
                 <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}"></CheckBox>
             </StackPanel>
