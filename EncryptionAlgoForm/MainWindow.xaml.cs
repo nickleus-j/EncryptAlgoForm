@@ -15,13 +15,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using SourceChord.FluentWPF;
 namespace EncryptionAlgoForm
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : AcrylicWindow
     {
         public FormModel Model { get; set; }
         public HasherUiHandler clickhandler { get; set; }
