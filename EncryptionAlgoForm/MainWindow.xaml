@@ -7,13 +7,13 @@
         xmlns:local="clr-namespace:HashAlgoForm.ViewModels"
         mc:Ignorable="d"
         fw:AcrylicWindow.Enabled="True"
-        FallbackColor="#9c0820"
-                  TintColor="#217a32" TintOpacity=".75"
+        FallbackColor="#12bc33"
+                  TintColor="#217a32"
         Title="Hash Form" Height="400" Width="525">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
     </Window.Resources>
-    <fw:AcrylicPanel Background="Transparent">
+    <fw:AcrylicPanel>
         <Grid fw:PointerTracker.Enabled="True" Background="#01FFFFFF" Margin="3">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -40,20 +40,20 @@
             <StackPanel Orientation="Horizontal" Margin="0,5">
                 <Label Content="Text For Salt" FontSize="18"></Label>
                 <TextBox Name="ForSalt" MinWidth="210" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt, Mode=TwoWay}"></TextBox>
-                <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}"></CheckBox>
-            </StackPanel>
-                <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Style="{StaticResource ButtonRevealStyle}"/>
-            <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="12" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
+                <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}" BorderBrush="#FFBAAFAF" Foreground="#FF3A3838" FontSize="14"/>
+                </StackPanel>
+                <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Background="#cecddc" Foreground="#FF3E3B3B" BorderBrush="#FFA49999"/>
+            <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="16" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Margin="10,5" Background="GhostWhite">
+        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"  Background="GhostWhite">
             <Label Content="Log history" FontSize="16"/>
-                <Button Content="Clear Log History" Style="{StaticResource ButtonRevealStyle}" x:Name="clearLogBtn" Background="Transparent"></Button>
+                <Button Content="Clear Log History" x:Name="clearLogBtn" Background="Transparent"></Button>
         </StackPanel>
         
         <ScrollViewer  Grid.Column="1" Grid.Row="2" BorderBrush="#FFB5B5B5" Background="#fafafa">
                 <fw:AcrylicPanel TintColor="GhostWhite" TintOpacity=".75">
-                    <ListBox ItemsSource="{Binding Path=HashedHistory}" x:Name="LoggedHashes">
+                    <ListBox ItemsSource="{Binding Path=HashedHistory}" x:Name="LoggedHashes" BorderBrush="{x:Null}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Path=Term}" FontSize="16"/>
