@@ -42,13 +42,13 @@
                     <TextBox Name="ForSalt" MinWidth="210" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt, Mode=TwoWay}" Style="{StaticResource TextBoxRevealStyle}"></TextBox>
                     <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}" BorderBrush="#FFBAAFAF" Foreground="#FF3A3838" FontSize="14"/>
                 </StackPanel>
-                <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Background="#cecddc" Foreground="#FF3E3B3B" BorderBrush="#FFA49999"/>
+                <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Background="#FF8300FF" Foreground="White" BorderBrush="#FF330B4B"/>
                 <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="16" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
             </StackPanel>
 
             <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">
                 <StackPanel.Background>
-                    <SolidColorBrush Color="#FF7DB884" Opacity="0.75"/>
+                    <SolidColorBrush Color="#FF73CCBC" Opacity="0.75"/>
                 </StackPanel.Background>
                 <Label Content="Log history" FontSize="16"/>
                 <Button Content="Clear Log History" x:Name="clearLogBtn" Background="Transparent"></Button>
