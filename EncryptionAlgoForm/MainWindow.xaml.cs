@@ -43,6 +43,7 @@ namespace EncryptionAlgoForm
             HashChoice.SelectionChanged += clickhandler.HashForm_SelectionChanged;
             LoggedHashes.SelectionChanged += clickhandler.TermHistory_Select;
             clearLogBtn.Click += clickhandler.Trigger_ClearLoggedTerms;
+            hashAll.Click += clickhandler.Encrypt_ConcatenatedtermHistory;
         }
         
     }

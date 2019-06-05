@@ -48,6 +48,18 @@ namespace HashAlgoForm.ViewModels
                 return termLog;
             }
         }
+        public string ConcatenatedMessages
+        {
+            get
+            {
+                List<string> messages = new List<string>();
+                foreach(HashedTerm terms in HashedHistory)
+                {
+                    messages.Add(String.Concat(terms.Term, " "));
+                }
+                return String.Concat(messages);
+            }
+        }
         #endregion
         #region Notification
         public event PropertyChangedEventHandler PropertyChanged;

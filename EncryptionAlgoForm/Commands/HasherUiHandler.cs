@@ -39,6 +39,15 @@ namespace HashAlgoForm.Commands
             else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
             ViewModel.AddHashedTerm(new HashedTerm(ViewModel.ForHashing, ViewModel.UseSalt, ViewModel.ForSalt));
         }
+        public void Encrypt_ConcatenatedtermHistory(object sender, RoutedEventArgs e)
+        {
+            string forHashing = ViewModel.ConcatenatedMessages;
+            if (ViewModel.SelectedHashAlgorithm == null)
+            {
+                Hash(new SHA256Managed(), forHashing);
+            }
+            else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
+        }
         public void HashForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(sender is ComboBox)

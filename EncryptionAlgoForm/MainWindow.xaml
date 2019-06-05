@@ -17,8 +17,8 @@
         <Grid fw:PointerTracker.Enabled="True" Background="#01FFFFFF" Margin="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" MaxHeight="100"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -52,6 +52,7 @@
                 </StackPanel.Background>
                 <Label Content="Log history" FontSize="16"/>
                 <Button Content="Clear Log History" x:Name="clearLogBtn" Background="Transparent"></Button>
+                <Button Content="Hash all text" x:Name="hashAll"></Button>
             </StackPanel>
 
             <ScrollViewer  Grid.Column="1" Grid.Row="2" BorderBrush="#FFB5B5B5" Background="#fafafa">

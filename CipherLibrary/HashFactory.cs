@@ -17,6 +17,7 @@ namespace CipherLibrary
         public KeyedHashAlgorithm CreateKeyHashAlgorithm() => KeyedHashAlgorithm.Create();
         public RIPEMD160 CreateRipeMdAlgorithm() => new RIPEMD160Managed();
         public Whirlpool CreateWhirlpool() => new Whirlpool();
+        public HashAlgorithm CreateMACTripleDES() => MACTripleDES.Create();
         /// <summary>
         /// Returns a collection of hash algorithms that can be used
         /// </summary>
@@ -30,7 +31,8 @@ namespace CipherLibrary
             hashAlgorithms.Add("Keyed Hash Algorithm", CreateKeyHashAlgorithm());
             hashAlgorithms.Add("Ripe MD 160", CreateRipeMdAlgorithm());
             hashAlgorithms.Add("Whirlpool", CreateWhirlpool());
-            hashAlgorithms.Add("HMAC", HMACSHA256.Create()); 
+            hashAlgorithms.Add("HMAC", HMACSHA256.Create());
+            hashAlgorithms.Add("MACTripleDES", CreateMACTripleDES());
             return hashAlgorithms;
         }
     }
