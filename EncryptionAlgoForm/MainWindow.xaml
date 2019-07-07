@@ -14,39 +14,40 @@
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
     </Window.Resources>
     <fw:AcrylicPanel>
-        <Grid fw:PointerTracker.Enabled="True" Background="#01FFFFFF" Margin="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <DockPanel>
+            <Grid fw:PointerTracker.Enabled="True" Background="#01FFFFFF" Margin="3" DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-                <StackPanel Name="EncryptionSelection" Orientation="Horizontal" Margin="5,10">
-                    <Label Content="Choose a Hash Algorithm"></Label>
-                    <ComboBox Name="HashChoice" 
+                <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <StackPanel Name="EncryptionSelection" Orientation="Horizontal" Margin="5,10">
+                        <Label Content="Choose a Hash Algorithm"></Label>
+                        <ComboBox Name="HashChoice" 
                            SelectedValuePath="Value" DisplayMemberPath="Key" 
                           ItemsSource="{Binding Path=HashOptions}" SelectedIndex="0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Label Content="Enter Text To be Encrypted" FontSize="20"></Label>
+                        <TextBox Name="ToBeEncrypted" MinWidth="100" HorizontalContentAlignment="Stretch" FontSize="22"  Style="{StaticResource TextBoxRevealStyle}" Text="{Binding Path=ForHashing, Mode=TwoWay}">
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Label Content="Text For Salt" FontSize="18"></Label>
+                        <TextBox Name="ForSalt" MinWidth="100" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt, Mode=TwoWay}" Style="{StaticResource TextBoxRevealStyle}"></TextBox>
+                        <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}" BorderBrush="#FFBAAFAF" Foreground="#FF3A3838" FontSize="14"/>
+                    </StackPanel>
+                    <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Background="#FF6009B2" Foreground="White" BorderBrush="#FF330B4B" FontSize="18"/>
+                    <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="16" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5">
-                    <Label Content="Enter Text To be Encrypted" FontSize="20"></Label>
-                    <TextBox Name="ToBeEncrypted" MinWidth="220" HorizontalContentAlignment="Stretch" FontSize="22"  Style="{StaticResource TextBoxRevealStyle}" Text="{Binding Path=ForHashing, Mode=TwoWay}">
-                    </TextBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,5">
-                    <Label Content="Text For Salt" FontSize="18"></Label>
-                    <TextBox Name="ForSalt" MinWidth="210" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt, Mode=TwoWay}" Style="{StaticResource TextBoxRevealStyle}"></TextBox>
-                    <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}" BorderBrush="#FFBAAFAF" Foreground="#FF3A3838" FontSize="14"/>
-                </StackPanel>
-                <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Background="#FF6009B2" Foreground="White" BorderBrush="#FF330B4B" FontSize="18"/>
-                <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="16" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">
+     
+            </Grid>
+            <StackPanel DockPanel.Dock="Left" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5,0,10,0">
                 <StackPanel.Background>
                     <SolidColorBrush Color="#FFB1EFE4" Opacity="0.75"/>
                 </StackPanel.Background>
@@ -54,8 +55,7 @@
                 <Button Content="Clear Log History" x:Name="clearLogBtn" Background="Transparent"></Button>
                 <Button Content="Hash all text" x:Name="hashAll" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"></Button>
             </StackPanel>
-
-            <ScrollViewer  Grid.Column="1" Grid.Row="2" BorderBrush="#FFB5B5B5" Background="#fafafa">
+            <ScrollViewer DockPanel.Dock="Right" BorderBrush="#FFB5B5B5" Background="#fafafa">
                 <fw:AcrylicPanel TintColor="GhostWhite" TintOpacity=".75">
                     <ListBox ItemsSource="{Binding Path=HashedHistory}" x:Name="LoggedHashes" BorderBrush="{x:Null}">
                         <ListBox.ItemTemplate>
@@ -67,6 +67,7 @@
                 </fw:AcrylicPanel>
 
             </ScrollViewer>
-        </Grid>
+        </DockPanel>
+        
     </fw:AcrylicPanel>
 </fw:AcrylicWindow>
