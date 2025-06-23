@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HashAlgoForm.ViewModels;
+using AlgoHasher.ViewModels;
 using System.Windows;
 using System.Security.Cryptography;
 using System.Windows.Controls;
 
-namespace HashAlgoForm.Commands
+namespace AlgoHasher.Commands
 {
     public class HasherUiHandler
     {
