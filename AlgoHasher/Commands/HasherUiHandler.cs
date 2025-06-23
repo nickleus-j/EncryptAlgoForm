@@ -34,7 +34,7 @@ namespace AlgoHasher.Commands
             string forHashing = ViewModel.UseSalt ? ViewModel.ForHashing + ViewModel.ForSalt : ViewModel.ForHashing;
             if (ViewModel.SelectedHashAlgorithm == null)
             {
-                Hash(new SHA256Managed(), forHashing);
+                Hash(SHA256.Create(), forHashing);
             }
             else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
             ViewModel.AddHashedTerm(new HashedTerm(ViewModel.ForHashing, ViewModel.UseSalt, ViewModel.ForSalt));
@@ -44,7 +44,7 @@ namespace AlgoHasher.Commands
             string forHashing = ViewModel.ConcatenatedMessages;
             if (ViewModel.SelectedHashAlgorithm == null)
             {
-                Hash(new SHA256Managed(), forHashing);
+                Hash(SHA256.Create(), forHashing);
             }
             else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
         }
