@@ -4,20 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace CipherLibrary
+namespace Cipher.Library
 {
     public class HashFactory
     {
         public SHA256 CreateSha256()
         {
-            return new SHA256Managed();
+            return SHA256.Create();
         }
-        public SHA512 CreateSha512() => new SHA512Managed();
+        public SHA512 CreateSha512() => SHA512.Create();
         public MD5 CreateMD5() => MD5.Create();
-        public KeyedHashAlgorithm CreateKeyHashAlgorithm() => KeyedHashAlgorithm.Create();
-        public RIPEMD160 CreateRipeMdAlgorithm() => new RIPEMD160Managed();
+        SHA384 CreateSHA384() => SHA384.Create();
         public Whirlpool CreateWhirlpool() => new Whirlpool();
-        public HashAlgorithm CreateMACTripleDES() => MACTripleDES.Create();
         /// <summary>
         /// Returns a collection of hash algorithms that can be used
         /// </summary>
@@ -28,11 +26,8 @@ namespace CipherLibrary
             hashAlgorithms.Add("Sha-256", CreateSha256());
             hashAlgorithms.Add("Sha-512", CreateSha512());
             hashAlgorithms.Add("MD5", CreateMD5());
-            hashAlgorithms.Add("Keyed Hash Algorithm", CreateKeyHashAlgorithm());
-            hashAlgorithms.Add("Ripe MD 160", CreateRipeMdAlgorithm());
             hashAlgorithms.Add("Whirlpool", CreateWhirlpool());
-            hashAlgorithms.Add("HMAC", HMACSHA256.Create());
-            hashAlgorithms.Add("MACTripleDES", CreateMACTripleDES());
+            hashAlgorithms.Add("SHA384", CreateSHA384());
             return hashAlgorithms;
         }
     }

@@ -1,11 +1,7 @@
-﻿using HashAlgoForm.Commands;
-using HashAlgoForm.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using AlgoHasher.Commands;
+using AlgoHasher.ViewModels;
+using SourceChord.FluentWPF;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,8 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SourceChord.FluentWPF;
-namespace EncryptionAlgoForm
+
+namespace AlgoHasher
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -28,7 +24,7 @@ namespace EncryptionAlgoForm
         public MainWindow()
         {
             Model = new FormModel();
-            clickhandler=new HasherUiHandler(Model);
+            clickhandler = new HasherUiHandler(Model);
             Model.ForHashing = "Give text";
             Model.Result = "Result Here";
             Model.SelectedHashAlgorithm = Model.HashOptions.Values.First();
@@ -45,6 +41,6 @@ namespace EncryptionAlgoForm
             clearLogBtn.Click += clickhandler.Trigger_ClearLoggedTerms;
             hashAll.Click += clickhandler.Encrypt_ConcatenatedtermHistory;
         }
-        
+
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HashAlgoForm.ViewModels;
+using AlgoHasher.ViewModels;
 using System.Windows;
 using System.Security.Cryptography;
 using System.Windows.Controls;
 
-namespace HashAlgoForm.Commands
+namespace AlgoHasher.Commands
 {
     public class HasherUiHandler
     {
@@ -34,7 +34,7 @@ namespace HashAlgoForm.Commands
             string forHashing = ViewModel.UseSalt ? ViewModel.ForHashing + ViewModel.ForSalt : ViewModel.ForHashing;
             if (ViewModel.SelectedHashAlgorithm == null)
             {
-                Hash(new SHA256Managed(), forHashing);
+                Hash(SHA256.Create(), forHashing);
             }
             else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
             ViewModel.AddHashedTerm(new HashedTerm(ViewModel.ForHashing, ViewModel.UseSalt, ViewModel.ForSalt));
@@ -44,7 +44,7 @@ namespace HashAlgoForm.Commands
             string forHashing = ViewModel.ConcatenatedMessages;
             if (ViewModel.SelectedHashAlgorithm == null)
             {
-                Hash(new SHA256Managed(), forHashing);
+                Hash(SHA256.Create(), forHashing);
             }
             else Hash(ViewModel.SelectedHashAlgorithm, forHashing);
         }
@@ -55,7 +55,7 @@ namespace HashAlgoForm.Commands
         }
         public void TermHistory_Select(object sender, RoutedEventArgs e)
         {
-            if (sender is ListBox)
+            if (sender is ListBox && ((ListBox)sender).SelectedIndex>=0)
             {
                 ListBox lb = (ListBox)sender;
                 HashedTerm selectedTerm = ViewModel.HashedHistory[lb.SelectedIndex];

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using CipherLibrary;
+using Cipher.Library;
 using System.Security.Cryptography;
 using System.Collections.ObjectModel;
 
-namespace HashAlgoForm.ViewModels
+namespace AlgoHasher.ViewModels
 {
     public class FormModel : System.ComponentModel.INotifyPropertyChanged
     {
