@@ -14,8 +14,10 @@ namespace Cipher.Library
         }
         public SHA512 CreateSha512() => SHA512.Create();
         public MD5 CreateMD5() => MD5.Create();
-        SHA384 CreateSHA384() => SHA384.Create();
+        public SHA384 CreateSHA384() => SHA384.Create();
         public Whirlpool CreateWhirlpool() => new Whirlpool();
+        byte[] key = { 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b };
+        public KeyedHashAlgorithm CreateKeyHash() => new HMACMD5(key);
         /// <summary>
         /// Returns a collection of hash algorithms that can be used
         /// </summary>
@@ -28,6 +30,7 @@ namespace Cipher.Library
             hashAlgorithms.Add("MD5", CreateMD5());
             hashAlgorithms.Add("Whirlpool", CreateWhirlpool());
             hashAlgorithms.Add("SHA384", CreateSHA384());
+            hashAlgorithms.Add("Key hash", CreateKeyHash());
             return hashAlgorithms;
         }
     }

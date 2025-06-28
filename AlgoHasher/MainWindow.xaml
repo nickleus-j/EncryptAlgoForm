@@ -33,8 +33,8 @@
                           ItemsSource="{Binding Path=HashOptions}" SelectedIndex="0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <Label Content="Enter Text To be Encrypted" FontSize="20"></Label>
-                        <TextBox Name="ToBeEncrypted" MinWidth="100" HorizontalContentAlignment="Stretch" FontSize="22"   Text="{Binding Path=ForHashing, Mode=TwoWay}">
+                        <Label Content="Enter Text To be Encrypted" FontSize="18"></Label>
+                        <TextBox Name="ToBeEncrypted" MinWidth="100" HorizontalContentAlignment="Stretch" FontSize="20"   Text="{Binding Path=ForHashing, Mode=TwoWay}">
                         </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
