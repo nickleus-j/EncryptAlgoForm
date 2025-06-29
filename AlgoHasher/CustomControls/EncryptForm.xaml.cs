@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EncryptionAlgoForm.CustomControls
+namespace AlgoHasher.CustomControls
 {
     /// <summary>
     /// Interaction logic for EncryptForm.xaml

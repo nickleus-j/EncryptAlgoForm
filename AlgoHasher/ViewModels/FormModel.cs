@@ -25,15 +25,15 @@ namespace AlgoHasher.ViewModels
         public string ForHashing { get { return forHashing; } set { forHashing = value; OnPropertyChanged("forHashing"); } }
         public string ForSalt { get { return forSalt; } set { forSalt = value; OnPropertyChanged("forSalt"); } }
         public bool UseSalt { get { return useSalt; } set { useSalt = value;OnPropertyChanged("useSalt"); } }
-        private Dictionary<string, HashAlgorithm> hashDictionary { get; set; }
+        private Dictionary<string, HashAlgorithm> algoDictionary { get; set; }
         public Dictionary<string, HashAlgorithm> HashOptions {
             get {
-                if (hashDictionary == null)
+                if (algoDictionary == null)
                 {
                     HashFactory factory = new HashFactory();
-                    hashDictionary = factory.GetHashAlgorithms();
+                    algoDictionary = factory.GetHashAlgorithms();
                 }
-                return hashDictionary;
+                return algoDictionary;
             } }
         public HashAlgorithm SelectedHashAlgorithm { get; set; }
         private ObservableCollection<HashedTerm> termLog { get; set; }
