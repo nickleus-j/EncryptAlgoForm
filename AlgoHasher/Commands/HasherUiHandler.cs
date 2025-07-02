@@ -31,7 +31,7 @@ namespace AlgoHasher.Commands
         }
         public void EncryptBt_Click(object sender, RoutedEventArgs e)
         {
-            string forHashing = ViewModel.UseSalt ? ViewModel.ForHashing + ViewModel.ForSalt : ViewModel.ForHashing;
+            string forHashing = ViewModel.UseSalt ? String.Concat(ViewModel.ForHashing, ViewModel.ForSalt) : ViewModel.ForHashing;
             if (ViewModel.SelectedHashAlgorithm == null)
             {
                 Hash(SHA256.Create(), forHashing);
@@ -63,7 +63,7 @@ namespace AlgoHasher.Commands
                 ViewModel.ForSalt = selectedTerm.ForSalt;
                 ViewModel.UseSalt = selectedTerm.isSalted;
                 Hash(ViewModel.SelectedHashAlgorithm
-                    , ViewModel.UseSalt ? ViewModel.ForHashing + ViewModel.ForSalt : ViewModel.ForHashing);
+                    , ViewModel.UseSalt ? String.Concat( ViewModel.ForHashing, ViewModel.ForSalt) : ViewModel.ForHashing);
             }
 
         }
