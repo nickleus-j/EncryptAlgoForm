@@ -9,7 +9,7 @@
         fw:AcrylicWindow.Enabled="True"
         FallbackColor="#12bc33"
                   TintColor="#217a32"
-        Title="Hash Form" Height="400" Width="545">
+        Title="Hash Form" Height="410" Width="545">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
     </Window.Resources>
@@ -27,14 +27,14 @@
 
                 <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
                     <StackPanel Name="EncryptionSelection" Orientation="Horizontal" Margin="5,10">
-                        <Label Content="Choose a Hash Algorithm"></Label>
+                        <Label Content="Choose a Hash Algorithm" FontSize="14"></Label>
                         <ComboBox Name="HashChoice" 
                            SelectedValuePath="Value" DisplayMemberPath="Key" 
                           ItemsSource="{Binding Path=HashOptions}" SelectedIndex="0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <Label Content="Enter Text To be Encrypted" FontSize="18"></Label>
-                        <TextBox Name="ToBeEncrypted" MinWidth="100" HorizontalContentAlignment="Stretch" FontSize="20"   Text="{Binding Path=ForHashing, Mode=TwoWay}">
+                        <TextBox Name="ToBeEncrypted" MinWidth="100" HorizontalContentAlignment="Stretch" FontSize="18"   Text="{Binding Path=ForHashing, Mode=TwoWay}">
                         </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
@@ -43,7 +43,8 @@
                         <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}" BorderBrush="#FFBAAFAF" Foreground="#FF3A3838" FontSize="14"/>
                     </StackPanel>
                     <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Background="#FF6009B2" Foreground="White" BorderBrush="#FF330B4B" FontSize="18"/>
-                    <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="16" IsReadOnly="True" MaxLines="10" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
+                    <Label Content="Encrypted Text ↓" FontSize="14" FontFamily="MS Gothic"></Label>
+                    <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="18" IsReadOnly="True" MaxLines="10" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>
                 </StackPanel>
 
             </Grid>
@@ -52,10 +53,10 @@
                     <SolidColorBrush Color="#FFB1EFE4" Opacity="0.75"/>
                 </StackPanel.Background>
                 <Label Content="Log history" FontSize="16"/>
-                <Button Content="Clear Log History" x:Name="clearLogBtn" Background="#FFEADC49"></Button>
+                <Button Content="Clear Log History" x:Name="clearLogBtn" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"></Button>
                 <Button Content="Hash all text" x:Name="hashAll" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"></Button>
             </StackPanel>
-            <ScrollViewer DockPanel.Dock="Right"  Background="#fafafa">
+            <ScrollViewer DockPanel.Dock="Right" >
                 <fw:AcrylicPanel TintColor="GhostWhite" TintOpacity=".75">
                     <ListBox ItemsSource="{Binding Path=HashedHistory}" x:Name="LoggedHashes" BorderBrush="{x:Null}">
                         <ListBox.ItemTemplate>
