@@ -15,12 +15,8 @@ namespace Cipher.Library
 
         const int WBLOCK_LONG = 8;
         const int WBLOCK_BYTES = 64;
-        const int WBLOCK_BITS = 512;
 
         const int LENGTH_BYTES = 32;
-        const int LENGTH_BITS = 256;
-
-        const int LONG_RUN = 100000000;
 
         #endregion
 

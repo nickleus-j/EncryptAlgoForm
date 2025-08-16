@@ -31,6 +31,7 @@ namespace AlgoHasher.Commands
         }
         public void EncryptBt_Click(object sender, RoutedEventArgs e)
         {
+            e.Handled = true;
             string forHashing = ViewModel.UseSalt ? String.Concat(ViewModel.ForHashing, ViewModel.ForSalt) : ViewModel.ForHashing;
             if (ViewModel.SelectedHashAlgorithm == null)
             {
@@ -41,6 +42,7 @@ namespace AlgoHasher.Commands
         }
         public void Encrypt_ConcatenatedtermHistory(object sender, RoutedEventArgs e)
         {
+            e.Handled = true;
             string forHashing = ViewModel.ConcatenatedMessages;
             if (ViewModel.SelectedHashAlgorithm == null)
             {
@@ -50,11 +52,13 @@ namespace AlgoHasher.Commands
         }
         public void HashForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(sender is ComboBox)
+            e.Handled = true;
+            if (sender is ComboBox)
             ViewModel.SelectedHashAlgorithm = (HashAlgorithm)(((ComboBox)sender).SelectedValue);
         }
         public void TermHistory_Select(object sender, RoutedEventArgs e)
         {
+            e.Handled = true;
             if (sender is ListBox && ((ListBox)sender).SelectedIndex>=0)
             {
                 ListBox lb = (ListBox)sender;
@@ -69,6 +73,7 @@ namespace AlgoHasher.Commands
         }
         public void Trigger_ClearLoggedTerms(object sender, RoutedEventArgs e)
         {
+            e.Handled = true;
             ViewModel.HashedHistory.Clear();
         }
     }
