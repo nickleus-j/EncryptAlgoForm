@@ -14,6 +14,7 @@ namespace AlgoHasher.ViewModels
         private string forSalt { get; set; }
         
         private string result { get; set; }
+        private int _randomTextLength { get; set; }
         public string Result { get { return result; }
             set
             {
@@ -25,6 +26,7 @@ namespace AlgoHasher.ViewModels
         public string ForHashing { get { return forHashing; } set { forHashing = value; OnPropertyChanged("forHashing"); } }
         public string ForSalt { get { return forSalt; } set { forSalt = value; OnPropertyChanged("forSalt"); } }
         public bool UseSalt { get { return useSalt; } set { useSalt = value;OnPropertyChanged("useSalt"); } }
+        public int RandomTextLength { get { return _randomTextLength; } set { _randomTextLength = value; OnPropertyChanged("_randomTextLength"); } }
         private Dictionary<string, HashAlgorithm> algoDictionary { get; set; }
         public Dictionary<string, HashAlgorithm> HashOptions {
             get {

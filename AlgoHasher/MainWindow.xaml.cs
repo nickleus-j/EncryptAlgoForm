@@ -40,6 +40,7 @@ namespace AlgoHasher
             LoggedHashes.SelectionChanged += clickhandler.TermHistory_Select;
             clearLogBtn.Click += clickhandler.Trigger_ClearLoggedTerms;
             hashAll.Click += clickhandler.Encrypt_ConcatenatedtermHistory;
+            RandomBtn.Click += clickhandler.RandomBt_Click;
         }
 
     }

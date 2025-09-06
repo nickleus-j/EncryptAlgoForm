@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:local="clr-namespace:AlgoHasher.ViewModels"
+        xmlns:cc="clr-namespace:AlgoHasher.CustomControls"
         mc:Ignorable="d"
         fw:AcrylicWindow.Enabled="True"
         FallbackColor="#12bc33"
@@ -42,6 +43,12 @@
                         <TextBox Name="ForSalt" MinWidth="100" HorizontalContentAlignment="Stretch" FontSize="18" Text="{Binding Path=ForSalt, Mode=TwoWay}" ></TextBox>
                         <CheckBox Content="Use Salt" Margin="15,10" IsChecked="{Binding Path=UseSalt, Mode=TwoWay}" BorderBrush="#FFBAAFAF" Foreground="#FF3A3838" FontSize="14"/>
                     </StackPanel>
+                    <WrapPanel>
+                        <Label>Random text length</Label>
+                        <cc:PositiveIntegerBox Value="{Binding RandomTextLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="18"
+                               Minimum="0" Maximum="120" Width="50"></cc:PositiveIntegerBox>
+                        <Button Content="Generate Random Text" x:Name="RandomBtn"></Button>
+                    </WrapPanel>
                     <Button Name="EncryptBt" Content="Hash" Margin="10,5" MaxWidth="150" HorizontalAlignment="Left" Padding="10,5" Background="#FF6009B2" Foreground="White" BorderBrush="#FF330B4B" FontSize="18"/>
                     <Label Content="Encrypted Text ↓" FontSize="14" FontFamily="MS Gothic"></Label>
                     <TextBox Name="resultBox" Text="{Binding Path=Result, Mode=TwoWay}" FontSize="18" IsReadOnly="True" MaxLines="10" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" MinHeight="24"/>

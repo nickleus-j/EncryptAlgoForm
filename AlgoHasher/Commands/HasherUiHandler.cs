@@ -76,5 +76,16 @@ namespace AlgoHasher.Commands
             e.Handled = true;
             ViewModel.HashedHistory.Clear();
         }
+        public void RandomBt_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            ViewModel.ForHashing = GenerateRandomString(ViewModel.RandomTextLength);
+        }
+        private string GenerateRandomString(int length)
+        {
+            Random randomGenerator = new Random();
+            string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(characters, length).Select(s => s[randomGenerator.Next(s.Length)]).ToArray());
+        }
     }
 }
