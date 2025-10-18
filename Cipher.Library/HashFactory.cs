@@ -1,8 +1,9 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace Cipher.Library
 {
@@ -30,8 +31,10 @@ namespace Cipher.Library
             hashAlgorithms.Add("MD5", CreateMD5());
             hashAlgorithms.Add("Whirlpool", CreateWhirlpool());
             hashAlgorithms.Add("SHA384", CreateSHA384());
+            hashAlgorithms.Add("Blake3", new Blake3HashAlgo());
             hashAlgorithms.Add("Key hash", CreateKeyHash());
             return hashAlgorithms;
         }
     }
+
 }
