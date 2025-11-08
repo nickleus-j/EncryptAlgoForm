@@ -18,6 +18,7 @@ namespace Cipher.Library
         public SHA384 CreateSHA384() => SHA384.Create();
         public BCryptHashAlgorithm CreateBCrypt() => new BCryptHashAlgorithm();
         public Argon2Hash CreateArgon2() => new Argon2Hash();
+        public Ed25519SignatureAlgorithm CreateEd25519()=>new Ed25519SignatureAlgorithm();
         public Whirlpool CreateWhirlpool() => new Whirlpool();
         byte[] key = { 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0x0b, 0xf8, 0x86};
         public KeyedHashAlgorithm CreateKeyHash() => new HMACMD5(key);
@@ -37,6 +38,7 @@ namespace Cipher.Library
             hashAlgorithms.Add("Key hash", CreateKeyHash());
             hashAlgorithms.Add("B crypt", CreateBCrypt());
             hashAlgorithms.Add("Argon 2", CreateArgon2());
+            hashAlgorithms.Add("Ed25519 Signature", CreateEd25519());
             return hashAlgorithms;
         }
     }
