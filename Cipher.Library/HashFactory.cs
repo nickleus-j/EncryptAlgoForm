@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Cipher.Library
 {
+    /// <summary>
+    /// Centralized the creation of various hash and signature algorithm instances
+    /// </summary>
     public class HashFactory
     {
         public SHA256 CreateSha256()
@@ -40,6 +43,10 @@ namespace Cipher.Library
             hashAlgorithms.Add("Argon 2", CreateArgon2());
             hashAlgorithms.Add("Ed25519 Signature", CreateEd25519());
             return hashAlgorithms;
+        }
+        public HashAlgorithm CreateByName(string name)
+        {
+            return GetHashAlgorithms().TryGetValue(name, out var algo) ? algo : throw new ArgumentException($"Unknown algorithm: {name}");
         }
     }
 
