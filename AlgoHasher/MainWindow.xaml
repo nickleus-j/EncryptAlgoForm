@@ -10,7 +10,7 @@
         fw:AcrylicWindow.Enabled="True"
         FallbackColor="#12bc33"
                   TintColor="#217a32"
-        Title="Hash Form" Height="410" Width="545">
+        Title="Hash Form" Height="420" Width="550">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
     </Window.Resources>
@@ -31,7 +31,7 @@
                         <Label Content="Choose a Hash Algorithm" FontSize="14"></Label>
                         <ComboBox Name="HashChoice" 
                            SelectedValuePath="Value" DisplayMemberPath="Key" 
-                          ItemsSource="{Binding Path=HashOptions}" SelectedIndex="0"/>
+                          ItemsSource="{Binding Path=HashOptions}" SelectedIndex="0" FontFamily="Bahnschrift"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,5">
                         <Label Content="Enter Text To be Encrypted" FontSize="18"></Label>
